@@ -1,4 +1,5 @@
 import AppBar from 'material-ui/AppBar';
+import Collection from '../components/Collections/Collections';
 import Head from '../components/head';
 import Link from 'next/link';
 import Nav from '../components/nav';
@@ -16,5 +17,6 @@ export default () => (
         </Typography>
       </Toolbar>
     </AppBar>
+    <Collection />
   </div>
 );
