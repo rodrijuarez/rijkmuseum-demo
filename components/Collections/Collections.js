@@ -27,9 +27,7 @@ class Collections extends React.Component {
   collectionImage = _.compose(_.prop('url'), _.prop('webImage'));
 
   render() {
-    console.log('this.props', this.props);
     const { isLoading, collections } = this.state;
-    console.log('collections', collections);
     return (
       <div>
         <h1>Collections</h1>
