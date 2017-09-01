@@ -1,4 +1,4 @@
-import { GridList, GridListTile } from 'material-ui/GridList';
+import { GridList, GridListTile, GridListTileBar } from 'material-ui/GridList';
 
 import React from 'react';
 import _ from 'ramda';
@@ -26,17 +26,20 @@ class Collections extends React.Component {
 
   collectionImage = _.compose(_.prop('url'), _.prop('webImage'));
 
+  title = _.prop('title');
+
   render() {
     const { isLoading, collections } = this.state;
     return (
       <div>
         <h1>Collections</h1>
         {!isLoading ? (
-          <GridList cellHeight={160} cols={3}>
+          <GridList cellHeight={1250} cols={3}>
             {_.map(
               collection => (
                 <GridListTile key={this.collectionImage(collection)}>
-                  <img src={this.collectionImage(collection)} alt={_.prop('title', collection)} />
+                  <img src={this.collectionImage(collection)} alt={this.title(collection)} />
+                  <GridListTileBar title={this.title(collection)} />
                 </GridListTile>
               ),
               collections
